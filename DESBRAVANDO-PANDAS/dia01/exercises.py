@@ -49,19 +49,25 @@ dados: dict = {
     }
 
 df: pd.DataFrame = pd.DataFrame(dados)
-print(df)
+df
 
-# Sumário de cada coluna
-sumario: list = df.columns.values
+# %%
+# Sumário colunas numericas
+sumario_num: pd.Series = df.describe()
+sumario_num
 
+# %%
+# Sumário colunas categóricas
+sumario_obj: pd.Series = df.describe(include= ['O'])
+sumario_obj
+
+# %%
 # Media coluna idade
 media_idade: float = df['idade'].mean()
+print(media_idade)
+
 
 # Último nome da coluna nome
 ultimo_nome: str = df['nome'].iloc[-1]
-
-# Printando resultados
-print(sumario)
-print(media_idade)
 print(ultimo_nome)
 
