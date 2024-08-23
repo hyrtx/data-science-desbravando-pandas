@@ -18,3 +18,8 @@ files = os.listdir(path)
 
 dfs = []
 for i in files:
+    file_name = path + i
+    dfs.append(import_etl(file_name))
+
+df_concatenao = pd.concat(dfs, axis=1).reset_index()
+df_concatenao
