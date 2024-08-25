@@ -14,12 +14,12 @@ def import_etl(path: str) -> pd.DataFrame:
 
 # %%
 path: str = '../data/ipea/'
-files = os.listdir(path)
+files: list = os.listdir(path)
 
 dfs = []
 for i in files:
-    file_name = path + i
+    file_name: str = path + i
     dfs.append(import_etl(file_name))
 
-df_concatenao = pd.concat(dfs, axis=1).reset_index()
+df_concatenao: pd.DataFrame = pd.concat(dfs, axis=1).reset_index()
 df_concatenao
